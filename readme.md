@@ -32,4 +32,5 @@ content: 传递消息的内容
 ```
 
 ## 效果
-![image](https://raw.githubusercontent.com/HappyKnow/circular-similarity/master/screen.png)
+![image](https://raw.githubusercontent.com/qq1060844713/notice-message/blob/master/screen.png)
+
