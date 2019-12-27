@@ -1,7 +1,7 @@
 <template>
-    <div style="position: fixed;width: 100%;height: 100%;pointer-events: none;z-index: 9999;" v-show="visible">
+    <div class="container" v-show="visible">
         <div class="message-box">
-            <div class="message-bg" :class="visible?'bounce-enter-active':'bounce-leave-active'">
+            <div class="message-bg" :style="'background:'+style.background+';'+'border:'+style.border" :class="visible?'bounce-enter-active ':'bounces-leave-active'">
                 <div class="message" :title="content">
                     <div class="content-style">
                         <img v-show="type!==''" :class="type+' '" :src="type==='success'?successImg:errorImg"/>
@@ -24,8 +24,10 @@
                 time: 2000,
                 visible: false,
                 type: '',
-                successImg:require('../assets/icon_right.svg'),
-                errorImg:require('../assets/icon_wrong.svg')
+                style: {},
+                showClose:false,
+                successImg:require('./icon_right.svg'),
+                errorImg:require('./icon_wrong.svg')
             }
         },
         methods: {
@@ -50,29 +52,36 @@
             noticeMessage.$eventBus.$on("close_message", function (data) {
                 _this.close();
             });
+            noticeMessage.$eventBus.$on("onMessage",function (msg) {
+
+            });
             noticeMessage.$eventBus.$on("notice_message", function (data) {
                 _this.content = data.content;
-                if (data.time !== undefined && data.time !== '') {
-                    _this.time = data.time;
-                }
-                if (data.type!==undefined && data.type!==''){
-                    _this.type = data.type;
-                }else {
-                    _this.type = '';
-                }
+                if (data.time !== undefined && data.time !== '') _this.time = data.time;
+                if (data.style!==undefined && data.style!=='') _this.style = data.style;
+                if (data.type!==undefined && data.type!=='') _this.type = data.type;
+                else _this.type = '';
                 _this.open();
             });
         }
-    }
+    };
 export default noticeMessage;
 </script>
 <style scoped lang="scss">
+    .container{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+    }
     .message-box{
         display: flex;
         height: 100%;
         width: 100%;
         justify-content: center;
         align-items: center;
+        transform: translate(0px,-50%);
     }
     .message-bg {
         height: 160px;

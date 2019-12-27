@@ -41,7 +41,12 @@
         methods:{
             buttonClick(){
                 this.$notice_message({
-                    content: '默认消息主题'
+                    content: '默认消息主题',
+                    style:{
+                        background: 'rgb(48, 117, 58)',
+                        border: '2px solid #ef2129'
+                    },
+                    time:'1000'
                 });
             },
             successClick(){

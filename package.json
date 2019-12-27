@@ -1,6 +1,6 @@
 {
   "name": "notice-message",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": false,
   "main": "src/lib/index.js",
   "files": [
@@ -24,6 +24,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "list-animation": "^1.0.0",
     "vue": "^2.5.16"
   },
   "devDependencies": {
