@@ -52,9 +52,6 @@
             noticeMessage.$eventBus.$on("close_message", function (data) {
                 _this.close();
             });
-            noticeMessage.$eventBus.$on("onMessage",function (msg) {
-
-            });
             noticeMessage.$eventBus.$on("notice_message", function (data) {
                 _this.content = data.content;
                 if (data.time !== undefined && data.time !== '') _this.time = data.time;

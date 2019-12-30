@@ -30,7 +30,6 @@ type: success 成功 error失败错误 不填就是默认主题
 style:{} 可以传背景和边框样式
 time: 时间 弹窗显示时间 不填默认显示两秒 设置为0 则不会自动关闭
 content: 传递消息的内容
-onClose:回调message参数关闭实例
 ```
 
 ## 效果
